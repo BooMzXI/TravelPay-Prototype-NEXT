@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import TopBar from "@/components/TopBar";
 import './globalsFont.css'
-import { AddPeopleProvider, BillProvider } from "@/components/context";
+import { AddPeopleProvider, BillProvider, ShowTotalProvider, VisibleCheck } from "@/components/context";
 import TempMenuBottom from "../components/MenuBottom";
 
 const geistSans = Geist({
@@ -26,9 +26,13 @@ export default function RootLayout({ children }) {
       <body>
         <BillProvider>
           <AddPeopleProvider>
-            <TopBar />
-              {children}
-            <TempMenuBottom />
+            <ShowTotalProvider>
+              <VisibleCheck>
+                <TopBar />
+                  {children}
+                <TempMenuBottom />
+              </VisibleCheck>
+            </ShowTotalProvider>
           </AddPeopleProvider>
         </BillProvider>
       </body>

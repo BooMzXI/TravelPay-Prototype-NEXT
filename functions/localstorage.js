@@ -9,3 +9,8 @@ export const saveBills = (bills) => {
 export const AddPeopleToList = (people) => {
     localStorage.setItem('Peoples',JSON.stringify(people))
 }
+
+export const getPeople = () => {
+    const storedPeople = localStorage.getItem("Peoples");
+    return storedPeople ? JSON.parse(storedPeople) : [];
+};

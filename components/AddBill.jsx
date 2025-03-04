@@ -4,10 +4,10 @@ import React from "react"
 import { useBill } from "./context"
 import '../app/globals.css'
 import { getBills } from '@/functions/localstorage'
+import './component.css'
 
 const AddBills = () => {
     const { isVisible , setIsVisible } = useBill()
-
     const [billName, setBillName] = React.useState("");
     const [amount, setAmount] = React.useState("");
 
@@ -34,6 +34,7 @@ const AddBills = () => {
 
       setIsVisible(false)
       console.log("Already add")
+      location.reload()
     }
     React.useEffect(() => {
       setBills(getBills());
@@ -41,12 +42,12 @@ const AddBills = () => {
      
   return (
     <div className="billContainer">
-        <div className={`bill h-90 ${isVisible ? 'visible' : ''}`}>
+        <div className={`bill h-72 ${(isVisible) ? 'visible' : ''} absolute z-6`}>
           <div className="flex-col text-xl p-3 m-3">
             <div className="w-full h-12">
               <h1>Add new bill</h1>
             </div>
-            <div className="w-full h-12">
+            <div className="w-full h-12 opacity-60">
               <h4>Add a new bill to the list</h4>
             </div>
             <div className="w-full h-30">
@@ -57,6 +58,7 @@ const AddBills = () => {
 
               <input className="border-b-slate-400 w-full h-10 p-2" 
               placeholder="Amount"
+              type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}/>
             </div>
