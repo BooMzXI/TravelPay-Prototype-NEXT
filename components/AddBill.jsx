@@ -17,8 +17,6 @@ const AddBills = ({ bills, setBills }) => {
     setAmount('')
   }
 
-  // const [bills , setBills] = React.useState([])
-
   const saveBillsToLocalstorage = (bills) => {
     localStorage.setItem("bills", JSON.stringify(bills))
   }
@@ -36,7 +34,6 @@ const AddBills = ({ bills, setBills }) => {
     setBillName("")
     setAmount("")
     console.log("Already add")
-    // location.reload()
   }
   React.useEffect(() => {
     setBills(getBills());
