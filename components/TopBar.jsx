@@ -4,7 +4,7 @@ const TopBar = () => {
   return (
     <div className='menu'>
         <span></span>
-        <p className=" text-xl">GuMaiJayKonDeaw.com</p>
+        <p className=" text-xl">Travelpay</p>
         <span></span>
     </div>
   )
